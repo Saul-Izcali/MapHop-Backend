@@ -1,0 +1,320 @@
+// ------------------ USUARIO COMUN
+
+###
+POST http://localhost:4000/registro HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Taco3",
+    "apellidoPaterno": "Machuca",
+	"apellidoMaterno": "Da la teja",
+	"correoElectronico": "mikehotpussy@oio.poio",
+	"nombreUsuario": "xxChicoBuapo_PussyDestroyer1xx",
+	"contrasena": "1234"
+}
+
+###
+GET http://localhost:4000/registro HTTP/1.1
+
+###
+GET http://localhost:4000/registro/6149eacf35b42b1870dc9a39 HTTP/1.1
+
+###
+GET http://localhost:4000/buscarComun HTTP/1.1
+
+###
+GET http://localhost:4000/buscarEspecial HTTP/1.1
+
+###
+GET http://localhost:4000/buscarResponsable HTTP/1.1
+
+###
+POST http://localhost:4000/usuarioRepetido HTTP/1.1
+Content-Type: application/json
+
+{
+	"nombreUsuario": "comun2"
+}
+
+
+###
+PUT http://localhost:4000/registro/61008e814f3b0d303c405008 HTTP/1.1
+Content-Type: application/json
+
+{
+	"nombreUsuario": "TortaDeTamal"
+}
+
+###
+DELETE http://localhost:4000/registro/61019f840e384446b4c03aeb HTTP/1.1
+
+
+
+// ------------------ USUARIO ESPECIAL
+
+###
+POST http://localhost:4000/registro-especial HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "pruebaEspecial5",
+    "apellidoPaterno": "Machuca",
+	"apellidoMaterno": "Da la teja",
+	"correoElectronico": "mikehotpussy@oio.poio",
+	"nombreUsuario": "xxChicoBuapo_PussyDestroyer1xx",
+	"contrasena": "4321",
+    "usuarioEspecial": {
+            "validado": "false",
+            "imagen": "direccion/de/prueba.jpg"
+        }
+}
+
+###
+GET http://localhost:4000/registro-especial HTTP/1.1
+
+###
+GET http://localhost:4000/registro-especial/60f737ef30b5922620c44113 HTTP/1.1
+
+###
+PUT http://localhost:4000/registro-especial/60f737ef30b5922620c44113 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "TacoEspecialDeSal",
+    "apellidoPaterno": "Antonio",
+	"apellidoMaterno": "Da la teja",
+	"correoElectronico": "mikehotpussy@oio.poiote",
+	"nombreUsuario": "xxChicoPrieto(no-por-eso-menos-guapo-pero-si-con-menos-derechos-,-ninguno)_PussyDestroyer2xx",
+	"contrasena": "12344321",
+    "reputacion": 10
+}
+
+###
+DELETE http://localhost:4000/registro-especial/60f8598034c7c12a185b0322 HTTP/1.1
+
+
+
+// ------------------ USUARIO REPONSABLE
+
+###
+POST  http://localhost:4000/registro-responsable HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombreUsuario": "responsable9",
+	"contrasena": "responsable9",
+    "usuarioResponsable": {
+        "institucion": "CFE",
+        "reporteAsignado": {
+                "folio": "i0002",
+                "tipoProblema": "Socavon",
+                "urgencia": 85,
+                "fechaCreacion": "2021-01-20",
+                "estado": "Desatendido",
+                "ubicacion": {
+                    "longitud": 201.145132,
+                    "latitud": 20.5430167
+                }
+            }
+    }
+}
+
+###
+PUT http://localhost:4000/registro-responsable/61006fd8b7faf32618d440eb HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombreUsuario": "responsable1",
+	"contrasena": "responsable1",
+    "usuarioResponsable": {
+        "institucion": "SIAPA",
+        "reporteAsignado": {
+                "folio": "i0002",
+                "tipoProblema": "Socavon",
+                "urgencia": 85,
+                "fechaCreacion": "2021-01-20",
+                "estado": "Desatendido",
+                "ubicacion": {
+                    "longitud": 201.145132,
+                    "latitud": 20.5430167
+                }
+            }
+    }
+}
+
+###
+GET http://localhost:4000/registro-responsable HTTP/1.1
+
+###
+GET http://localhost:4000/registro-responsable/60fa2b8e338b1627308b9b12 HTTP/1.1
+
+###
+DELETE http://localhost:4000/registro-responsable/60fa2b8e338b1627308b9b12 HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+POST  http://localhost:4000/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombreUsuario": "pruebatoken5",
+	"contrasena": "5"
+}
+
+
+
+
+###
+get  http://localhost:4000/privateTask HTTP/1.1
+Content-Type: application/json
+
+
+// RECUPERAR CONTRASEÑA DE USUARIO
+
+###
+POST http://localhost:4000/cambiarContra/61129ea2c2248c6b2459129a HTTP/1.1
+Content-Type: application/json
+
+{
+    "contrasena": "comun1"
+}
+
+
+
+// CREAR USUARIO ADMINISTRADOR
+
+###
+POST http://localhost:4000/registro-administrador HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombreUsuario": "JulioAdmin",
+	"contrasena": "oiopoio123",
+    "usuarioAdmin": {
+        "admin": true
+    }
+}
+
+
+
+
+
+
+// CREAR REPORTE
+
+###
+POST http://localhost:4000/nuevo-reporte HTTP/1.1
+Content-Type: application/json
+
+{
+	"ubicacion": {
+		"longitud": 31.9467211,
+		"latitud": -50.3881742
+    },
+	"tipoProblema": "Incendio",
+	"credibilidad": 7,
+    "usuarios": {
+        "_id": "6125b5d4b67e282140b81d6d"
+    }
+}
+
+// REPLICAR REPORTE
+
+###
+PUT http://localhost:4000/replicar-reporte/615907167ed2d61344f148ec HTTP/1.1
+Content-Type: application/json
+
+{
+    "credibilidad": 8,
+    "usuarios": {
+        "_id": "61129ea2c2248c6b2459129a"
+    }
+}
+
+// LISTAR TODOS LOS REPORTES
+
+###
+GET http://localhost:4000/reportes/ HTTP/1.1
+
+// LISTAR REPORTES DE UN TIPO
+
+###
+GET http://localhost:4000/reportes-tipo/alumbrado HTTP/1.1
+
+// BUSCAR UN REPORTE
+
+###
+GET http://localhost:4000/reporte/61d7bc1551e29d22d0120ca7 HTTP/1.1
+
+// ELIMINAR REPORTE
+
+###
+DELETE http://localhost:4000/reporte/616e05048ea9a30c60281d2e HTTP/1.1
+
+
+
+
+
+
+
+
+
+// CREAR NOTIFICACION
+
+###
+POST http://localhost:4000/nueva-notificacion HTTP/1.1
+Content-Type: application/json
+
+{
+    "tipoProblema": "Vehiculo Abandonado",
+    "folioReporte": "61e225ba699f98cd7fe02a1f",
+	"tipoNotificacion": "estadoDenegado",
+    "usuarios": [{
+        "_id": "61947ea2c2248c6b2459129b"
+    },
+    {
+        "_id": "61947ea2c2248c6b2459129b"
+    },
+    {
+        "_id": "61129ea2c2248c6b2459129a"
+    }
+    ]
+}
+
+// BUSCAR REPORTES
+
+###
+GET http://localhost:4000/buscar-notificaciones/ HTTP/1.1
+
+// BUSCAR REPORTES DE UN USUARIO
+
+###
+GET http://localhost:4000/buscar-notificaciones/6125b5d4b67e282140b81d6d HTTP/1.1
+
+// EDITAR REPORTE
+
+###
+PUT http://localhost:4000/editar-notificacion/61e23e7145f05e18250960db HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario": "6125b5d4b67e282140b81d6f"
+}
+
+// BORRAR REPORTE
+
+###
+DELETE http://localhost:4000/borrar-notificacion/61e2811f41aa1a4b25a0ee16 HTTP/1.1
